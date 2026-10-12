@@ -2,31 +2,33 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sign Up</title>
 
-    <!-- Inter Font -->
+
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
+
 
     <style>
 
         /* =========================
-           RESET
+           BASIC RESET
         ========================= */
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: "Inter", sans-serif;
         }
 
 
@@ -35,17 +37,20 @@
         ========================= */
 
         body {
+
             min-height: 100vh;
 
             display: flex;
             justify-content: center;
             align-items: center;
 
-            padding: 24px;
+            padding: 16px;
 
             background: #141116;
 
             color: #f4ede4;
+
+            font-family: "Inter", sans-serif;
         }
 
 
@@ -54,31 +59,37 @@
         ========================= */
 
         .signup-container {
+
             width: 100%;
-            max-width: 410px;
+
+            max-width: 350px;
         }
 
 
         /* =========================
-           HEADER
+           HEADING
         ========================= */
 
         .heading {
-            margin-bottom: 28px;
+
             text-align: center;
+
+            margin-bottom: 20px;
+
+            animation: headingIn 0.7s ease-out;
         }
 
-        h1 {
-            font-size: 36px;
-            font-weight: 650;
 
-            letter-spacing: -1.2px;
-            line-height: 1.15;
+        .heading h1 {
 
-            margin-bottom: 10px;
+            font-size: 32px;
+
+            font-weight: 700;
+
+            letter-spacing: -0.7px;
 
             background: linear-gradient(
-                90deg,
+                135deg,
                 #f4ede4,
                 #c89aca
             );
@@ -87,28 +98,48 @@
             -webkit-text-fill-color: transparent;
         }
 
-        h2 {
-            font-size: 14px;
-            font-weight: 400;
 
-            line-height: 1.6;
-            letter-spacing: 0.1px;
+        .heading h2 {
+
+            margin-top: 6px;
+
+            font-size: 13px;
+
+            font-weight: 400;
 
             color: #9f929f;
         }
 
 
         /* =========================
-           FORM CARD
+           HEADING ANIMATION
+        ========================= */
+
+        @keyframes headingIn {
+
+            from {
+
+                opacity: 0;
+
+                transform: translateY(8px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =========================
+           SIGNUP FORM
         ========================= */
 
         form {
-            width: 100%;
 
-            padding: 32px;
-
-            display: flex;
-            flex-direction: column;
+            padding: 22px;
 
             background: rgba(255, 255, 255, 0.055);
 
@@ -117,54 +148,49 @@
             border-radius: 16px;
 
             backdrop-filter: blur(16px);
+
             -webkit-backdrop-filter: blur(16px);
 
             box-shadow:
-                0 20px 50px rgba(0, 0, 0, 0.35);
+                0 20px 50px rgba(0, 0, 0, 0.25);
         }
 
 
         /* =========================
-           FIELD
+           FORM FIELDS
         ========================= */
 
         .field {
-            display: flex;
-            flex-direction: column;
-        }
 
-        .field + .field {
-            margin-top: 16px;
+            margin-bottom: 12px;
         }
 
 
-        /* =========================
-           LABEL
-        ========================= */
+        .field label {
 
-        label {
-            margin-bottom: 7px;
+            display: block;
 
-            font-size: 13px;
+            margin-bottom: 5px;
+
+            font-size: 12px;
+
             font-weight: 500;
 
-            color: #d5c9d3;
+            color: #d8ccd8;
         }
 
 
-        /* =========================
-           INPUT
-        ========================= */
-
         .inp {
+
             width: 100%;
-            height: 48px;
 
-            padding: 0 15px;
+            height: 44px;
 
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 0 13px;
 
-            border-radius: 11px;
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            border-radius: 10px;
 
             outline: none;
 
@@ -172,89 +198,334 @@
 
             color: #f4ede4;
 
-            font-size: 15px;
-            font-weight: 400;
+            font-family: inherit;
 
-            transition:
-                border-color 0.2s ease,
-                background 0.2s ease,
-                box-shadow 0.2s ease;
+            font-size: 14px;
+
+            transition: 0.2s ease;
         }
 
-
-        /* =========================
-           PLACEHOLDER
-        ========================= */
 
         .inp::placeholder {
-            color: #746c75;
+
+            color: #756b75;
         }
 
-
-        /* =========================
-           INPUT FOCUS
-        ========================= */
 
         .inp:focus {
-            border-color: #9c619f;
 
-            background: rgba(255, 255, 255, 0.07);
+            border-color: #8c528f;
 
             box-shadow:
-                0 0 0 3px rgba(156, 97, 159, 0.12);
+                0 0 0 3px rgba(140, 82, 143, 0.15);
         }
 
 
         /* =========================
-           BUTTON
+           INVALID FIELD
         ========================= */
 
-        button {
-            width: 100%;
-            height: 50px;
+        .inp.error {
 
-            margin-top: 24px;
+            border-color: rgba(210, 120, 120, 0.75);
+
+            box-shadow:
+                0 0 0 3px rgba(210, 120, 120, 0.08);
+        }
+
+
+        /* =========================
+           SUBMIT BUTTON
+        ========================= */
+
+        button[type="submit"] {
+
+            width: 100%;
+
+            height: 45px;
+
+            margin-top: 5px;
 
             border: none;
 
-            border-radius: 11px;
+            border-radius: 10px;
 
             background: #8c528f;
 
             color: #ffffff;
 
-            font-size: 15px;
+            font-family: inherit;
+
+            font-size: 14px;
+
             font-weight: 600;
 
             cursor: pointer;
 
-            transition:
-                transform 0.2s ease,
-                background 0.2s ease,
-                box-shadow 0.2s ease;
+            transition: 0.2s ease;
         }
 
 
-        /* =========================
-           BUTTON HOVER
-        ========================= */
+        button[type="submit"]:hover {
 
-        button:hover {
             background: #9b609e;
 
             transform: translateY(-1px);
+        }
 
-            box-shadow:
-                0 8px 20px rgba(140, 82, 143, 0.25);
+
+        button[type="submit"]:active {
+
+            transform: translateY(0);
         }
 
 
         /* =========================
-           BUTTON ACTIVE
+           LOGIN LINK
         ========================= */
 
-        button:active {
-            transform: translateY(0);
+        .login-link {
+
+            margin-top: 14px;
+
+            text-align: center;
+
+            font-size: 12px;
+
+            color: #9f929f;
+        }
+
+
+        .login-link a {
+
+            color: #c89aca;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+
+        .login-link a:hover {
+
+            color: #e0b8e2;
+
+            text-decoration: underline;
+        }
+
+
+        /* =================================================
+           CUSTOM ALERT OVERLAY
+        ================================================= */
+
+        .alert-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+
+            background: rgba(10, 8, 11, 0.55);
+
+            backdrop-filter: blur(7px);
+
+            -webkit-backdrop-filter: blur(7px);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity 0.25s ease,
+                visibility 0.25s ease;
+
+            z-index: 1000;
+        }
+
+
+        /* Show alert */
+
+        .alert-overlay.show {
+
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+
+        /* =========================
+           ALERT BOX
+        ========================= */
+
+        .alert-box {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 360px;
+
+            padding: 26px;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.07);
+
+            border: 1px solid rgba(200, 154, 202, 0.28);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.45);
+
+            text-align: center;
+
+            transform:
+                translateY(15px)
+                scale(0.96);
+
+            opacity: 0;
+
+            transition:
+                transform 0.28s ease,
+                opacity 0.28s ease;
+        }
+
+
+        /* Alert entrance */
+
+        .alert-overlay.show .alert-box {
+
+            transform:
+                translateY(0)
+                scale(1);
+
+            opacity: 1;
+        }
+
+
+        /* =========================
+           ALERT ICON
+        ========================= */
+
+        .alert-icon {
+
+            width: 48px;
+
+            height: 48px;
+
+            margin: 0 auto 16px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+            background: rgba(140, 82, 143, 0.15);
+
+            border: 1px solid rgba(200, 154, 202, 0.25);
+
+            color: #d8a8da;
+
+            font-size: 22px;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================
+           ALERT TITLE
+        ========================= */
+
+        .alert-box h3 {
+
+            margin-bottom: 8px;
+
+            font-size: 18px;
+
+            font-weight: 600;
+
+            color: #f4ede4;
+        }
+
+
+        /* =========================
+           ALERT MESSAGE
+        ========================= */
+
+        .alert-box p {
+
+            padding: 0 8px;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            color: #a99da8;
+        }
+
+
+        /* =========================
+           CLOSE BUTTON
+        ========================= */
+
+        .alert-close {
+
+            position: absolute;
+
+            top: 12px;
+
+            right: 12px;
+
+            width: 32px;
+
+            height: 32px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255, 255, 255, 0.10);
+
+            background: rgba(255, 255, 255, 0.05);
+
+            color: #b9adb8;
+
+            font-size: 19px;
+
+            cursor: pointer;
+
+            transition: 0.2s ease;
+        }
+
+
+        .alert-close:hover {
+
+            background: rgba(140, 82, 143, 0.22);
+
+            border-color: rgba(200, 154, 202, 0.30);
+
+            color: #f4ede4;
+
+            transform: rotate(90deg);
         }
 
 
@@ -265,59 +536,110 @@
         @media (max-width: 480px) {
 
             body {
-                padding: 18px;
+
+                padding: 14px;
             }
+
+
+            .signup-container {
+
+                max-width: 350px;
+            }
+
 
             .heading {
-                margin-bottom: 24px;
+
+                margin-bottom: 18px;
             }
 
-            h1 {
+
+            .heading h1 {
+
                 font-size: 30px;
             }
 
-            h2 {
-                font-size: 14px;
-            }
 
             form {
-                padding: 24px;
+
+                padding: 20px;
+            }
+
+
+            .field {
+
+                margin-bottom: 11px;
+            }
+
+
+            .inp {
+
+                height: 43px;
+            }
+
+
+            button[type="submit"] {
+
+                height: 44px;
+            }
+
+
+            .alert-box {
+
+                padding: 24px 20px;
+            }
+        }
+
+
+        /* =========================
+           REDUCED MOTION
+        ========================= */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .heading {
+
+                animation: none;
+            }
+
+            .alert-overlay,
+            .alert-box {
+
+                transition: none;
             }
         }
 
     </style>
+
 </head>
 
 
 <body>
 
+
+    <!-- =========================
+         SIGNUP PAGE
+    ========================= -->
+
     <div class="signup-container">
 
 
-        <!-- =========================
-             HEADER
-        ========================= -->
+        <!-- Heading -->
 
         <div class="heading">
 
-            <h1>
-                Welcome!
-            </h1>
+            <h1>Welcome!</h1>
 
-            <h2>
-                Let's begin our journey!
-            </h2>
+            <h2>Let's begin our journey!</h2>
 
         </div>
 
 
-        <!-- =========================
-             SIGNUP FORM
-        ========================= -->
+        <!-- Signup Form -->
 
-        <form method="POST">
+        <form method="POST" novalidate>
 
             {% csrf_token %}
+            {% if messages %}{% for m in messages %}<p style="color:#e08a8a;font-size:13px;margin-bottom:12px;">{{ m }}</p>{% endfor %}{% endif %}
 
 
             <!-- Username -->
@@ -333,7 +655,7 @@
                     id="username"
                     name="username"
                     class="inp"
-                    placeholder="Choose a username"
+                    placeholder="Enter your username"
                     autocomplete="username"
                 >
 
@@ -373,7 +695,7 @@
                     id="password"
                     name="password"
                     class="inp"
-                    placeholder="Create a password"
+                    placeholder="Enter your password"
                     autocomplete="new-password"
                 >
 
@@ -385,7 +707,7 @@
             <div class="field">
 
                 <label for="confirm_password">
-                    Confirm password
+                    Confirm Password
                 </label>
 
                 <input
@@ -393,23 +715,373 @@
                     id="confirm_password"
                     name="confirm_password"
                     class="inp"
-                    placeholder="Re-enter your password"
+                    placeholder="Confirm your password"
                     autocomplete="new-password"
                 >
 
             </div>
 
 
-            <!-- Signup Button -->
+            <!-- Submit -->
 
             <button type="submit">
                 Create account →
             </button>
 
 
+            <!-- Login Link -->
+
+            <div class="login-link">
+
+                Already have an account?
+
+                <a href="{% url 'login' %}">
+                    Log in
+                </a>
+
+            </div>
+
         </form>
 
     </div>
+
+
+
+    <!-- =================================================
+         CUSTOM VALIDATION ALERT
+    ================================================= -->
+
+    <div
+        class="alert-overlay"
+        id="validationAlert"
+    >
+
+        <div
+            class="alert-box"
+            role="alert"
+            aria-live="assertive"
+        >
+
+
+            <!-- Close button -->
+
+            <button
+                type="button"
+                class="alert-close"
+                id="closeAlert"
+                aria-label="Close alert"
+            >
+                ×
+            </button>
+
+
+            <!-- Alert icon -->
+
+            <div class="alert-icon">
+                !
+            </div>
+
+
+            <!-- Alert title -->
+
+            <h3 id="alertTitle">
+                Something needs attention
+            </h3>
+
+
+            <!-- Alert message -->
+
+            <p id="alertMessage">
+                Please check your information and try again.
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         JAVASCRIPT
+    ================================================= -->
+
+    <script>
+
+
+        /* =========================
+           GET ELEMENTS
+        ========================= */
+
+        const form =
+            document.querySelector("form");
+
+        const username =
+            document.getElementById("username");
+
+        const email =
+            document.getElementById("email");
+
+        const password =
+            document.getElementById("password");
+
+        const confirmPassword =
+            document.getElementById("confirm_password");
+
+
+        const validationAlert =
+            document.getElementById("validationAlert");
+
+        const alertTitle =
+            document.getElementById("alertTitle");
+
+        const alertMessage =
+            document.getElementById("alertMessage");
+
+        const closeAlert =
+            document.getElementById("closeAlert");
+
+
+        /* =========================
+           SHOW ALERT
+        ========================= */
+
+        function showAlert(title, message, field) {
+
+            alertTitle.textContent = title;
+
+            alertMessage.textContent = message;
+
+            validationAlert.classList.add("show");
+
+
+            /* Highlight the problem field */
+
+            if (field) {
+
+                field.classList.add("error");
+
+                field.focus();
+
+            }
+        }
+
+
+        /* =========================
+           CLOSE ALERT
+        ========================= */
+
+        function hideAlert() {
+
+            validationAlert.classList.remove("show");
+        }
+
+
+        /* =========================
+           REMOVE ERROR WHEN USER
+           STARTS FIXING THE FIELD
+        ========================= */
+
+        const inputs = [
+            username,
+            email,
+            password,
+            confirmPassword
+        ];
+
+
+        inputs.forEach(function(input) {
+
+            input.addEventListener("input", function() {
+
+                input.classList.remove("error");
+
+            });
+
+        });
+
+
+        /* =========================
+           FORM VALIDATION
+        ========================= */
+
+        form.addEventListener("submit", function(event) {
+
+            /*
+                Stop the browser from showing
+                its own ugly validation popup.
+            */
+
+            event.preventDefault();
+
+
+            /* -------------------------
+               USERNAME
+            ------------------------- */
+
+            if (username.value.trim() === "") {
+
+                showAlert(
+                    "Missing username",
+                    "Please enter a username to continue.",
+                    username
+                );
+
+                return;
+            }
+
+
+            /* -------------------------
+               EMAIL EMPTY
+            ------------------------- */
+
+            if (email.value.trim() === "") {
+
+                showAlert(
+                    "Missing email",
+                    "Please enter your email address to continue.",
+                    email
+                );
+
+                return;
+            }
+
+
+            /* -------------------------
+               EMAIL FORMAT
+            ------------------------- */
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (!emailPattern.test(email.value.trim())) {
+
+                showAlert(
+                    "Invalid email",
+                    "Please enter a valid email address, like name@example.com.",
+                    email
+                );
+
+                return;
+            }
+
+
+            /* -------------------------
+               PASSWORD EMPTY
+            ------------------------- */
+
+            if (password.value === "") {
+
+                showAlert(
+                    "Missing password",
+                    "Please enter a password to continue.",
+                    password
+                );
+
+                return;
+            }
+
+
+            /* -------------------------
+               PASSWORD LENGTH
+            ------------------------- */
+
+            if (password.value.length < 6) {
+
+                showAlert(
+                    "Password too short",
+                    "Your password must contain at least 6 characters.",
+                    password
+                );
+
+                return;
+            }
+
+
+            /* -------------------------
+               CONFIRM PASSWORD EMPTY
+            ------------------------- */
+
+            if (confirmPassword.value === "") {
+
+                showAlert(
+                    "Missing confirmation",
+                    "Please confirm your password.",
+                    confirmPassword
+                );
+
+                return;
+            }
+
+
+            /* -------------------------
+               PASSWORD MATCH
+            ------------------------- */
+
+            if (password.value !== confirmPassword.value) {
+
+                showAlert(
+                    "Password mismatch",
+                    "Password and Confirm Password aren't the same. Please check them and try again.",
+                    confirmPassword
+                );
+
+                return;
+            }
+
+
+            /* -------------------------
+               EVERYTHING IS VALID
+            ------------------------- */
+
+            form.submit();
+
+        });
+
+
+        /* =========================
+           CLOSE BUTTON
+        ========================= */
+
+        closeAlert.addEventListener("click", function() {
+
+            hideAlert();
+
+        });
+
+
+        /* =========================
+           CLICK OUTSIDE ALERT
+        ========================= */
+
+        validationAlert.addEventListener("click", function(event) {
+
+            if (event.target === validationAlert) {
+
+                hideAlert();
+
+            }
+
+        });
+
+
+        /* =========================
+           ESC KEY
+        ========================= */
+
+        document.addEventListener("keydown", function(event) {
+
+            if (event.key === "Escape") {
+
+                hideAlert();
+
+            }
+
+        });
+
+    </script>
+
 
 </body>
 
